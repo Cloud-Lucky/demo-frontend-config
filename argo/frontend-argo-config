@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-frontend-config
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Cloud-Lucky/demo-frontend-config.git
+    targetRevision: HEAD
+    path: frontend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+  syncPolicy:
+    automated:
+     prune: true
+     selfHeal: true
+    syncOptions:
+     - CreateNameSpace=true
+     - PruneLast=true
+     - ApplyOutOfSyncOnly=true 
+
+
+
