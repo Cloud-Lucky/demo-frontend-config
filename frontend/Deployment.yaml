@@ -16,7 +16,7 @@ spec:
         app: demo
     spec:
       containers:
-      - name: demo- frontend-container
+      - name: demo-frontend-container
         image: laxmireddy870113/frontend:v1
         ports:
         - containerPort: 4000
@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo- frontend-service
+  name: demo-frontend-service
   namespace: demo
 spec:
   selector:
